@@ -1,5 +1,5 @@
 {
-  "name": "my-news-webapp",
+  "name": "custom-news-api",
   "version": "1.0.0",
   "description": "Application to save favorite news sources and articles",
   "main": "app.js",
