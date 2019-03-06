@@ -1,0 +1,30 @@
+{
+  "name": "my-news-webapp",
+  "version": "1.0.0",
+  "description": "Application to save favorite news sources and articles",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattBriden/polis-test-assignment.git"
+  },
+  "keywords": [
+    "polis"
+  ],
+  "author": "mbriden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MattBriden/polis-test-assignment/issues"
+  },
+  "homepage": "https://github.com/MattBriden/polis-test-assignment#readme",
+  "dependencies": {
+    "bcrypt": "3.0.4",
+    "body-parser": "1.18.3",
+    "express": "4.16.4",
+    "lowdb": "1.0.0",
+    "uuid": "3.3.2"
+  }
+}
