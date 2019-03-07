@@ -2,33 +2,47 @@ const bcrypt = require('bcrypt');
 const saltRounds = 5;
 
 var express = require('express');
+var passport = require('passport');
 var db = require('../db');
 var router = express.Router();
 var bodyParser = require('body-parser');
+var LocalStrategy = require('passport-local').Strategy;
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
-router.post('/', function (req, res) {
-  // Ensure proper fields are in request
-  if(req.body == null || req.body.username == null || req.body.password == null){
-    return res.status(400).send({message: "Bad Request"});
-  }
+function findUser(username, fn){
+    let user = db.get('users').find({username: username}).value();
+    return user == null ? fn(null, null) : fn(null, user);
+}
 
-  // Find user by username
-  let user = db.get('users').find({username: req.body.username}).value();
-  if (user == null){
-    return res.status(400).send({message: "Invalid credentials"});
-  }
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    process.nextTick(function () {
 
-  // Ensure password is correct
-  bcrypt.compare(req.body.password, user.password, function(err, status) {
-    if (err || !status) {
-      return res.status(400).send({message: "Invalid credentials"});
-    } else {
-      return res.status(302).send({message: "Login successful!"});
-    }
-  });
+      findUser(username, function(err, user) {
+        if (err) {
+          return done(err);
+        }
+        if (!user) {
+          return done(null, false);
+        }
+        bcrypt.compare(password, user.password, function(err, status) {
+          if (err || !status) {
+            return done(null, false);
+          } else {
+            return done(null, user);
+          }
+        });
+      });
+    });
+  }
+));
+
+
+router.post('/', passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
+     //res.redirect('/');
+     res.status(200).send("Login complete");
 });
 
 module.exports = router;
