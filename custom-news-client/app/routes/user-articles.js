@@ -35,7 +35,7 @@ export default Ember.Route.extend({
             'Authorization' : authToken
           }
         }).then(() => {
-          alert('Article successfully removed.')
+          this.refresh();
         }).catch((error) => {
           Ember.Logger.error(error);
           alert('Error removing article.')

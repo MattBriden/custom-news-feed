@@ -1,7 +1,7 @@
-let low = require('lowdb'),
-FileSync = require('lowdb/adapters/FileSync'),
-adapter = new FileSync('db.json'),
+let low = require('lowdb');
+let FileSync = require('lowdb/adapters/FileSync');
+let adapter = new FileSync('db.json');
 
-db = low(adapter);
+let db = low(adapter);
 
 module.exports = db;

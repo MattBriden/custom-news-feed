@@ -13,7 +13,7 @@ export default Ember.Component.extend({
     },
     remove() {
       let article = this.get('title');
-      this.removeArticle('article');
+      this.removeArticle(article);
     }
   }
 });

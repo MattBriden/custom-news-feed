@@ -82,8 +82,8 @@ router.delete('/articles', authenticate.isAuthenticated, function(req, res){
   let token = req.headers['authorization'];
   let decoded = jwt.verify(token, 'secret');
 
-  // Delete article by title and user
-  db.get('userArticles').filter({username: decoded.user}).remove({article: req.body.article}).write();
+  // Delete article by user and title
+  db.get('userArticles').remove({username: decoded.user, article: req.body.article}).write();
   res.status(202).send({message: 'Successfully deleted user article'});
 })
 
