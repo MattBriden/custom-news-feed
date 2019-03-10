@@ -1,0 +1,8 @@
+<h2>
+  HOME
+</h2>
+<ul class="people_list">
+  {{#each sources as |source|}}
+    {{source-card id=source.id name=source.name description=source.description viewSourceArticles=(action 'viewSourceArticles')}}
+  {{/each}}
+</ul>

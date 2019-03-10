@@ -1,11 +1,48 @@
 {
   "users": [
     {
-      "id": "3157b3a0-3fc1-11e9-b4c1-db9e970540b9",
+      "id": "b805f820-42ba-11e9-965c-55ea24c28f8e",
       "username": "mbriden",
-      "password": "$2b$05$GXnFbF7cOs3e.Ekl8JxyR.kWCIDRl1kV5p9RxISQGQ9Vy4T2XAmsC"
+      "password": "$2b$05$8z6AOawQLLqznA4YLqC5auciQhKfswyGQNbdx2jbJKgU8Uc2uw4j2"
+    },
+    {
+      "id": "67095550-42cb-11e9-8d1f-ff71cdc7488f",
+      "username": "jdoe",
+      "password": "$2b$05$/7WKVNZbROSEFfyg8zPEUOtgT6xjXD7S5RznC1pcXSFK9P/IL8naq"
     }
   ],
-  "userSources": [],
-  "userArticles": []
+  "sources": [
+    {
+      "id": "bleacher-report",
+      "name": "Bleacher Report",
+      "description": "Sports journalists and bloggers covering NFL, MLB, NBA, NHL, MMA, college football and basketball, NASCAR, fantasy sports and more. News, photos, mock drafts, game scores, player profiles and more!"
+    },
+    {
+      "id": "espn",
+      "name": "ESPN",
+      "description": "ESPN has up-to-the-minute sports news coverage, scores, highlights and commentary for NFL, MLB, NBA, College Football, NCAA Basketball and more."
+    },
+    {
+      "id": "espn-cric-info",
+      "name": "ESPN Cric Info",
+      "description": "ESPN Cricinfo provides the most comprehensive cricket coverage available including live ball-by-ball commentary, news, unparalleled statistics, quality editorial comment and analysis."
+    },
+    {
+      "id": "fox-sports",
+      "name": "Fox Sports",
+      "description": "Find live scores, player and team news, videos, rumors, stats, standings, schedules and fantasy games on FOX Sports."
+    },
+    {
+      "id": "nfl-news",
+      "name": "NFL News",
+      "description": "The official source for NFL news, schedules, stats, scores and more."
+    }
+  ],
+  "userArticles": [
+    {
+      "username": "mbriden",
+      "article": "WATCH: 11-year-old Pennsylvania boy saves life of suicidal girl in Texas using Snapchat",
+      "url": "https://abcnews.go.com/US/video/11-year-pennsylvania-boy-saves-life-suicidal-girl-61580889"
+    }
+  ]
 }

@@ -1,0 +1,11 @@
+<div class="container">
+   <label for="uname"><b>Username</b></label>
+   {{input type="text" value=username}}
+
+   <label for="psw"><b>Password</b></label>
+   {{input type="text" value=password}}
+
+   <button type="submit" {{action 'submit'}}>Login</button>
+</div>
+<br/>
+New user? Click {{#link-to "new-user"}}here{{/link-to}}

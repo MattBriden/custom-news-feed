@@ -1,0 +1,8 @@
+<h2>
+  Articles
+</h2>
+<ul class="people_list">
+  {{#each articles as |article|}}
+    {{article-card title=article.title url=article.url}}
+  {{/each}}
+</ul>

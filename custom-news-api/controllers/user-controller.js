@@ -6,6 +6,7 @@ var express = require('express');
 var db = require('../db');
 var router = express.Router();
 var bodyParser = require('body-parser');
+var authenticate = require('../authentication');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
@@ -43,7 +44,7 @@ router.post('/', function (req, res) {
   });
 });
 
-router.get('/:id', function (req, res) {
+router.get('/:id', authenticate.isAuthenticated, function (req, res) {
   let user = db.get('users').find({id: req.params.id}).value();
   if (user == null) {
     return res.status(404).send({message: "User Not Found"});
