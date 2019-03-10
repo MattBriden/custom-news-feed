@@ -5,13 +5,3 @@
 /tests
 /tmp
 **/.gitkeep
-.bowerrc
-.editorconfig
-.ember-cli
-.gitignore
-.eslintrc.js
-.watchmanconfig
-.travis.yml
-bower.json
-ember-cli-build.js
-testem.js
