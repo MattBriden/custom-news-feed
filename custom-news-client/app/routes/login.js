@@ -3,6 +3,7 @@ import {inject as service} from '@ember/service';
 
 export default Ember.Route.extend({
   authService: service(),
+  login: true,
 
   actions: {
     authenticate(username, password) {

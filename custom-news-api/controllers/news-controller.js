@@ -33,7 +33,7 @@ router.get('/articles', authenticate.isAuthenticated, function(req, res) {
   let decoded = jwt.decode(token);
 
   // Get user saved articles
-  let userArticles = db.get('userArticles').find({username: decoded.user}).value();
+  let userArticles = db.get('userArticles').filter({username: decoded.user}).value();
   if(userArticles == null){
     return res.status(400).send({message: 'Sorry something went wrong'});
   }
@@ -57,6 +57,10 @@ router.post('/articles', authenticate.isAuthenticated, function(req, res) {
     return res.status(404).send('User does not exist');
   }
 
+  let existingArticle =  db.get('userArticles').find({username: decoded.user, article: req.body.article}).value();
+  if (existingArticle != null){
+    return res.status(200).send({message: 'Article already saved.'})
+  }
   // Save article for user
   let userArticle = {
     username: decoded.user,
@@ -65,7 +69,22 @@ router.post('/articles', authenticate.isAuthenticated, function(req, res) {
   }
 
   db.get('userArticles').push(userArticle).write();
-  res.status(201).send('Article saved sucessfully.')
+  res.status(201).send({message: 'Article saved sucessfully.'})
 });
+
+router.delete('/articles', authenticate.isAuthenticated, function(req, res){
+  // Ensure request has data
+  if(req.body == null || req.body.article == null){
+    return res.status(400).send({message: "Bad Request"});
+  }
+
+  // Get username off of already verified jwt
+  let token = req.headers['authorization'];
+  let decoded = jwt.verify(token, 'secret');
+
+  // Delete article by title and user
+  db.get('userArticles').filter({username: decoded.user}).remove({article: req.body.article}).write();
+  res.status(202).send({message: 'Successfully deleted user article'});
+})
 
 module.exports = router;

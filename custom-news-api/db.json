@@ -41,8 +41,13 @@
   "userArticles": [
     {
       "username": "mbriden",
-      "article": "WATCH: 11-year-old Pennsylvania boy saves life of suicidal girl in Texas using Snapchat",
-      "url": "https://abcnews.go.com/US/video/11-year-pennsylvania-boy-saves-life-suicidal-girl-61580889"
+      "article": "Antonio Brown Trade Rumors: WR Seeking $18-20 Million Per Year on New Contract",
+      "url": "https://bleacherreport.com/articles/2824800-antonio-brown-trade-rumors-wr-seeking-18-20-million-per-year-on-new-contract"
+    },
+    {
+      "username": "jdoe",
+      "article": "Umar Akmal, Shehzad have a future in Pakistan cricket - Moin Khan",
+      "url": "http://www.espncricinfo.com/story/_/id/26208573/umar-akmal-shehzad-future-pakistan-cricket-moin-khan"
     }
   ]
 }

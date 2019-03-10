@@ -1,8 +1,9 @@
+{{nav-bar}}
 <h2>
-  Articles
+  ARTICLES
 </h2>
-<ul class="people_list">
+<ul class="articles">
   {{#each articles as |article|}}
-    {{article-card title=article.title url=article.url}}
+    {{article-card title=article.title url=article.url saveArticle=(action 'saveArticle')}}
   {{/each}}
 </ul>

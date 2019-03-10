@@ -1,4 +1,9 @@
 <div class="container">
-   <label for="uname"><b>Title</b></label>
-   <a target="_blank" href="{{url}}">{{title}}</a>
+  <label for="uname"><b>Title</b></label>
+  <a href="{{url}}">{{title}}</a>
+  {{#if saved}}
+      <button {{action 'remove'}}>Remove Saved Article</button>
+  {{else}}
+      <button {{action 'save'}}>Save Article</button>
+  {{/if}}
 </div>

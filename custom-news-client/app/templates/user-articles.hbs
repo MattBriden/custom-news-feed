@@ -1,0 +1,9 @@
+{{nav-bar}}
+<h2>
+  SAVED ARTICLES
+</h2>
+<ul class="userArticles">
+  {{#each userArticles as |userArticle|}}
+    {{article-card title=userArticle.article url=userArticle.url saved=true removeArticle=(action 'removeArticle')}}
+  {{/each}}
+</ul>

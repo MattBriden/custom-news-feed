@@ -3,17 +3,12 @@ import { hash } from 'rsvp';
 import {inject as service} from '@ember/service';
 
 export default Ember.Route.extend({
-  queryParams: {
-    sourceId: {
-      refreshModel: true
-    }
-  },
   authService: service(),
   ajax: service(),
 
-  model(params){
+  model(){
     let authToken = this.get('authService.authToken');
-    return hash({articles : this.get('ajax').request('/articles/' + params.sourceId, {
+    return hash({userArticles: this.get('ajax').request('/articles', {
         method: 'GET',
         namespace: '/news',
         headers: {
@@ -27,24 +22,23 @@ export default Ember.Route.extend({
     });
   },
 
-  actions: {
-    saveUserArticle(article, url){
+  actions :{
+    removeUserArticle(article){
       let authToken = this.get('authService.authToken');
       this.get('ajax').request('/articles', {
-          method: 'POST',
+          method: 'DELETE',
           namespace: '/news',
           data: {
-            article: article,
-            url: url
+            article: article
           },
           headers: {
             'Authorization' : authToken
           }
         }).then(() => {
-          alert('Article successfully saved!')
+          alert('Article successfully removed.')
         }).catch((error) => {
           Ember.Logger.error(error);
-          alert('Error saving article.')
+          alert('Error removing article.')
         });
     }
   }
