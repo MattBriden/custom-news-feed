@@ -2,7 +2,7 @@
 <h2>
   SOURCES
 </h2>
-<ul class="sourcesS">
+<ul class="sources">
   {{#each sources as |source|}}
     {{source-card id=source.id name=source.name description=source.description viewSourceArticles=(action 'viewSourceArticles')}}
   {{/each}}

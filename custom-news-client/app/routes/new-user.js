@@ -15,6 +15,7 @@ export default Ember.Route.extend({
         }).then(() => {
           alert('User successfully created!')
         }).catch((error) => {
+          Ember.Logger.error(error);
           alert('Error creating user.')
         }).finally(() =>{
           this.transitionTo('login');

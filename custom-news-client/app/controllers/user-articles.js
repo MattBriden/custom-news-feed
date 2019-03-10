@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import { computed } from '@ember/object';
 import { alias } from '@ember/object/computed';
 
 export default Ember.Controller.extend({

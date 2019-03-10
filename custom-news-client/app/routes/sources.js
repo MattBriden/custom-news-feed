@@ -17,6 +17,7 @@ export default Ember.Route.extend({
       }).then((response) => {
         return response;
       }).catch((error) => {
+        Ember.Logger.error(error);
         this.transitionTo('login');
       })
     });
